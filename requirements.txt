@@ -1,4 +1,13 @@
-shot-scraper
-datasette
-sqlite-utils
-llm
+ugrep
+import subprocess
+
+# Search for "pattern" in "file.txt"
+command = ["ugrep", "pattern", "file.txt"]
+result = subprocess.run(command, capture_output=True, text=True)
+
+if result.returncode == 0:
+    print("Matches found:")
+    print(result.stdout)
+else:
+    print("Error during search:")
+    print(result.stderr)
